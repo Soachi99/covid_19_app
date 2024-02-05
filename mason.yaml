@@ -1,0 +1,13 @@
+bricks:
+  epik_flutter_app_architecture:
+    git:
+      url: https://github.com/Soachi99/epik_flutter_architecture_brick
+      path: bricks/.
+  epik_flutter_web_architecture:
+    git:
+      url: https://github.com/Soachi99/epik_flutter_web_architecture
+      path: bricks/
+  andromeda_feature: ^0.1.0+4
+  andromeda_page: ^0.1.0+3
+
+  
