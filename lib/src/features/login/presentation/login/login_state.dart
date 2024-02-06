@@ -1,8 +1,14 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class LoginState {
+  bool? firstValidation;
 
-  LoginState();
+  LoginState({this.firstValidation = false});
 
-  LoginState copyWith() {
-    return LoginState();
+  LoginState copyWith({
+    bool? firstValidation,
+  }) {
+    return LoginState(
+      firstValidation: firstValidation ?? this.firstValidation,
+    );
   }
 }

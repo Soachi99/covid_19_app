@@ -1,4 +1,5 @@
 import 'package:covid_19_app/src/tools/tools.dart';
+import 'package:covid_19_app/src/tools/validators.dart';
 import 'package:covid_19_app/src/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -174,7 +175,7 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
 
   Color _accentColor() {
     if (showError!) {
-      return customColors.black;
+      return customColors.red;
     }
     return focusNode.hasFocus ? customColors.black : customColors.grey;
   }
@@ -188,7 +189,10 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
   _validate(String text) {
     switch (widget.inputValueType) {
       case InputValueType.document:
-        //errorMessage = validateEmail(text);
+        errorMessage = validateDocument(text);
+        break;
+      case InputValueType.password:
+        errorMessage = validatePassword(text);
         break;
       default:
         //errorMessage = validateText(text, matchValue: widget.matchValue);
