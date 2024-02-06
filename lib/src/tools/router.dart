@@ -9,9 +9,15 @@ class Routes {
   static const String login = '/login';
 }
 
-final goRouterProvider = Provider<GoRouter>((ref) => router);
+final navigatorKeyProvider =
+    Provider<GlobalKey<NavigatorState>>((ref) => GlobalKey<NavigatorState>());
 
-final router = GoRouter(initialLocation: '/', routes: <GoRoute>[
+final goRouterProvider = Provider<GoRouter>((ref) => GoRouter(
+    navigatorKey: ref.watch(navigatorKeyProvider),
+    initialLocation: '/',
+    routes: routes));
+
+final List<GoRoute> routes = [
   GoRoute(
       path: Routes.rootRoute,
       pageBuilder: (context, state) =>
@@ -20,7 +26,7 @@ final router = GoRouter(initialLocation: '/', routes: <GoRoute>[
       path: Routes.login,
       pageBuilder: (context, state) =>
           page(state: state, child: const LoginPage())),
-]);
+];
 
 page({required GoRouterState state, required Widget child}) =>
     NoTransitionPage<void>(key: state.pageKey, child: child);

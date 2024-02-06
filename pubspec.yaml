@@ -22,6 +22,8 @@ dependencies:
   google_fonts: ^6.1.0
   intl: ^0.18.1
   flutter_svg: ^1.1.5
+  fluttertoast: ^8.2.4
+  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:
@@ -33,6 +35,8 @@ flutter:
 
   assets:
     - assets/
+    - assets/icons/
+    - assets/data/
 
 flutter_intl:
   enabled: true

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:covid_19_app/generated/l10n.dart';
 import 'package:covid_19_app/src/tools/tools.dart';
+import 'package:go_router/go_router.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -14,7 +15,6 @@ class App extends StatelessWidget {
     return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
         final goRouter = ref.watch(goRouterProvider);
-
         return MaterialApp.router(
           title: "",
           debugShowCheckedModeBanner: false,
