@@ -3,7 +3,7 @@
 ///
 
 class Constants {
-  String domain = "";
+  String domain = "https://api.covidtracking.com/v1/";
 }
 
 final Constants constants = Constants();

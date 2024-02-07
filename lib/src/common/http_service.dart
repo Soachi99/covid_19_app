@@ -24,8 +24,6 @@ class HttpService {
       Response response =
           await httpClient.get(Uri.parse("$url$endpoint"), headers: {
         HttpHeaders.contentTypeHeader: "application/json",
-        // if (await token() != null)
-        //   HttpHeaders.authorizationHeader: "Bearer ${await token()}",
       }).timeout(
         const Duration(seconds: 10),
         onTimeout: (() => throw TimeoutException("{'error': 'Timeout'}")),
@@ -79,9 +77,8 @@ class HttpService {
   // ignore: long-method
   Future<HttpServiceResponse> validateResponse(Response response) async {
     bool success = false;
-    String res = response.request?.method != "GET"
-        ? '\n[response]: ${response.body}'
-        : "";
+    String res = '\n[response]: ${response.body}';
+
     log(
       '[http-service] [validateResponse]'
       '$res'

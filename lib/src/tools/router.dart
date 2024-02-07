@@ -1,3 +1,4 @@
+import 'package:covid_19_app/src/features/home/presentation/home/home_page.dart';
 import 'package:covid_19_app/src/features/login/presentation/login/login_page.dart';
 import 'package:covid_19_app/src/features/splash_screen/presentation/splash_screen/splash_screen_page.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:go_router/go_router.dart';
 class Routes {
   static const String rootRoute = '/';
   static const String login = '/login';
+  static const String home = '/home';
 }
 
 final navigatorKeyProvider =
@@ -14,7 +16,7 @@ final navigatorKeyProvider =
 
 final goRouterProvider = Provider<GoRouter>((ref) => GoRouter(
     navigatorKey: ref.watch(navigatorKeyProvider),
-    initialLocation: '/',
+    initialLocation: Routes.home,
     routes: routes));
 
 final List<GoRoute> routes = [
@@ -26,6 +28,10 @@ final List<GoRoute> routes = [
       path: Routes.login,
       pageBuilder: (context, state) =>
           page(state: state, child: const LoginPage())),
+  GoRoute(
+      path: Routes.home,
+      pageBuilder: (context, state) =>
+          page(state: state, child: const HomePage())),
 ];
 
 page({required GoRouterState state, required Widget child}) =>
