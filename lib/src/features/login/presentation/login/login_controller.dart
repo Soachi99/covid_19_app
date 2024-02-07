@@ -34,7 +34,7 @@ class LoginController extends StateNotifier<LoginState> {
 
       switch (result) {
         case 0:
-          goRouter.go(Routes.rootRoute);
+          goRouter.go(Routes.home);
           break;
         case 1:
           dialogService.showErrorDialog(message);
