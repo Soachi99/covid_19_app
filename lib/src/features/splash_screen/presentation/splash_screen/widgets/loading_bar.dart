@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 class LoadingBar extends StatefulWidget {
   final int? loadTime;
 
-  const LoadingBar({super.key, this.loadTime = 10});
+  const LoadingBar({super.key, this.loadTime = 5});
 
   @override
   State<LoadingBar> createState() => _LoadingBarState();

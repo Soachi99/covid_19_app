@@ -24,8 +24,13 @@ class LoginRepositoryImpl implements LoginRepository {
   Future<List<Users>> getUsers() async {
     File file = File(await getPathDirectory());
     String jsonString = await file.readAsString();
-    List<Users> response = usersFromJson(json.decode(jsonString));
-    print(response.last.userName);
+    List<Users> response;
+    try {
+      response = usersFromJson(json.decode(jsonString));
+    } catch (e) {
+      response = usersFromJson(jsonString);
+    }
+
     return response;
   }
 

@@ -7,6 +7,7 @@ import 'package:covid_19_app/src/tools/tools.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:go_router/go_router.dart';
 
 import 'home_controller.dart';
 
@@ -36,7 +37,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         child: FloatingActionButton(
             backgroundColor: customColors.black,
             foregroundColor: customColors.white,
-            onPressed: () {},
+            onPressed: () => context.go(Routes.details),
             child: const Icon(Icons.add)),
       ),
       backgroundColor: customColors.white,

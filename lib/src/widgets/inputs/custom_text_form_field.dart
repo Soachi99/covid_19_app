@@ -127,7 +127,9 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
                 fontWeight: FontWeight.w400,
               ),
               suffixIcon: widget.suffixIconEnabled!
-                  ? const Icon(Icons.remove_red_eye_outlined)
+                  ? IconButton(
+                      onPressed: () => onTapSuffixIcon(),
+                      icon: const Icon(Icons.remove_red_eye_outlined))
                   : null,
             ),
             keyboardType: _keyboardType(),
