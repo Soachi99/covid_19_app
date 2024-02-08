@@ -26,6 +26,9 @@ dependencies:
   path_provider: ^2.1.2
   device_info_plus: ^9.1.2
   flutter_switch: ^0.3.2
+  d_chart: ^2.6.7
+  infinite_carousel: ^1.0.3
+  url_launcher: ^6.2.4
 
 dev_dependencies:
   flutter_test:

@@ -1,8 +1,5 @@
 import 'package:covid_19_app/src/features/home/domain/entities/states_current.dart';
 import 'package:covid_19_app/src/features/home/presentation/details/widgets/details_container.dart';
-import 'package:covid_19_app/src/tools/custom_colors.dart';
-import 'package:covid_19_app/src/tools/dimens.dart';
-import 'package:covid_19_app/src/tools/paths_images.dart';
 import 'package:covid_19_app/src/tools/tools.dart';
 import 'package:covid_19_app/src/widgets/custom_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -52,9 +49,9 @@ class _DetailsState extends ConsumerState<DetailsPage> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8, vertical: 6),
                         child: DetailsContainer(
-                            state: e.name,
-                            totalCases: statesCurrent.total,
-                            date: statesCurrent.dateModified ?? '2021-03-05T'),
+                          state: e,
+                          stateCurrent: statesCurrent,
+                        ),
                       );
                     }).toList()
                   : []),
