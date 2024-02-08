@@ -104,7 +104,7 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
             controller: widget.controller,
             validator: (x) => _validateInput(x ?? ''),
             onChanged: widget.onChanged,
-            textInputAction: TextInputAction.none,
+            textInputAction: TextInputAction.go,
             style: const TextStyle(
               fontFamily: "Roboto",
               color: Colors.black,

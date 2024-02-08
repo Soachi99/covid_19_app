@@ -24,7 +24,6 @@ class _DetailsState extends ConsumerState<DetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    var controller = ref.watch(detailsController.notifier);
     var state = ref.watch(detailsController);
     return Scaffold(
       backgroundColor: customColors.white,

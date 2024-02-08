@@ -55,7 +55,7 @@ class DetailsContainer extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
+                  SizedBox(
                     width: 200,
                     child: CustomText(
                       state.name,
