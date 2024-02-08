@@ -218,6 +218,8 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
 
   _keyboardType() {
     switch (widget.inputValueType) {
+      case InputValueType.document:
+        return TextInputType.number;
       default:
         return TextInputType.text;
     }

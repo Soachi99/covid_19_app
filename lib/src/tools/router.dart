@@ -1,5 +1,7 @@
+import 'package:covid_19_app/src/features/home/domain/entities/details_data.dart';
 import 'package:covid_19_app/src/features/home/presentation/details/details_page.dart';
 import 'package:covid_19_app/src/features/home/presentation/home/home_page.dart';
+import 'package:covid_19_app/src/features/home/presentation/state_details/state_details_page.dart';
 import 'package:covid_19_app/src/features/login/presentation/login/login_page.dart';
 import 'package:covid_19_app/src/features/splash_screen/presentation/splash_screen/splash_screen_page.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,7 @@ class Routes {
   static const String login = '/login';
   static const String home = '/home';
   static const String details = '/details';
+  static const String stateDetails = '/state-details';
 }
 
 final navigatorKeyProvider =
@@ -38,6 +41,10 @@ final List<GoRoute> routes = [
       path: Routes.details,
       pageBuilder: (context, state) =>
           page(state: state, child: const DetailsPage())),
+  GoRoute(
+      path: Routes.stateDetails,
+      pageBuilder: (context, state) => page(
+          state: state, child: StateDetailsPage(state.extra as DetailsData))),
 ];
 
 page({required GoRouterState state, required Widget child}) =>

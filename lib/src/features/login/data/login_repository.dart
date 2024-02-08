@@ -17,7 +17,9 @@ class LoginRepositoryImpl implements LoginRepository {
 
   @override
   Future<void> saveDataInLocal() async {
-    await copyAssetToFile(assetPath, await getPathDirectory());
+    if (!await File(await getPathDirectory()).exists()) {
+      await copyAssetToFile(assetPath, await getPathDirectory());
+    }
   }
 
   @override
@@ -41,11 +43,8 @@ class LoginRepositoryImpl implements LoginRepository {
   }
 
   Future<void> copyAssetToFile(String assetPath, String localPath) async {
-    ByteData data = await rootBundle.load(assetPath);
-    List<int> bytes = data.buffer.asUint8List();
-
     File file = File(await getPathDirectory());
-    await file.writeAsBytes(bytes);
+    file.writeAsStringSync(json.encode(await rootBundle.loadString(assetPath)));
   }
 
   Future<String> getPathDirectory() async {
