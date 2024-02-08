@@ -1,19 +1,51 @@
+import 'package:covid_19_app/src/features/home/domain/entities/details_data.dart';
+import 'package:covid_19_app/src/features/home/presentation/details/details_page.dart';
+import 'package:covid_19_app/src/features/home/presentation/home/home_page.dart';
+import 'package:covid_19_app/src/features/home/presentation/state_details/state_details_page.dart';
+import 'package:covid_19_app/src/features/login/presentation/login/login_page.dart';
+import 'package:covid_19_app/src/features/splash_screen/presentation/splash_screen/splash_screen_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class Routes {
-  // static const String rootRoute = '/';
+  static const String rootRoute = '/';
+  static const String login = '/login';
+  static const String home = '/home';
+  static const String details = '/details';
+  static const String stateDetails = '/state-details';
 }
 
-final goRouterProvider = Provider<GoRouter>((ref) => router);
+final navigatorKeyProvider =
+    Provider<GlobalKey<NavigatorState>>((ref) => GlobalKey<NavigatorState>());
 
-final router = GoRouter(initialLocation: '/', routes: <GoRoute>[
-  // GoRoute(
-  //     path: Routes.rootRoute,
-  //     pageBuilder: (context, state) =>
-  //         page(state: state, child: const Page())),
-]);
+final goRouterProvider = Provider<GoRouter>((ref) => GoRouter(
+    navigatorKey: ref.watch(navigatorKeyProvider),
+    initialLocation: Routes.rootRoute,
+    routes: routes));
+
+final List<GoRoute> routes = [
+  GoRoute(
+      path: Routes.rootRoute,
+      pageBuilder: (context, state) =>
+          page(state: state, child: const SplashScreenPage())),
+  GoRoute(
+      path: Routes.login,
+      pageBuilder: (context, state) =>
+          page(state: state, child: const LoginPage())),
+  GoRoute(
+      path: Routes.home,
+      pageBuilder: (context, state) =>
+          page(state: state, child: const HomePage())),
+  GoRoute(
+      path: Routes.details,
+      pageBuilder: (context, state) =>
+          page(state: state, child: const DetailsPage())),
+  GoRoute(
+      path: Routes.stateDetails,
+      pageBuilder: (context, state) => page(
+          state: state, child: StateDetailsPage(state.extra as DetailsData))),
+];
 
 page({required GoRouterState state, required Widget child}) =>
     NoTransitionPage<void>(key: state.pageKey, child: child);

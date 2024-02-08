@@ -14,7 +14,6 @@ class App extends StatelessWidget {
     return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
         final goRouter = ref.watch(goRouterProvider);
-
         return MaterialApp.router(
           title: "",
           debugShowCheckedModeBanner: false,
